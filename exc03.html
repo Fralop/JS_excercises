@@ -12,7 +12,9 @@
         capitalize(originalString);
         function capitalize (a) {
             const b = a.toLowerCase ();
-            console.log (b);
+            const c = b.charAt(0).toUpperCase();
+            const d = c + b.slice(1);
+            console.log (d);
         }
     </script>
 </body>
