@@ -8,11 +8,12 @@
 <body>
     <h1>Excercise 2 of Javascript</h1>
     <script>
-        let n = prompt("Enter number?", 1);
-        add7(n);
-        function add7 (a) {
-            let b = (+a + 7);
-            console.log (b);
+        let n = prompt("Enter first number?", "");
+        let m = prompt("Enter second number?", "");
+        multiply(n,m);
+        function multiply (a,b) {
+            let c = (+a * +b);
+            console.log (c);
         }
     </script>
 </body>
