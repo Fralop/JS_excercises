@@ -12,3 +12,10 @@ container.appendChild(contentTwo);
 const contentThree = document.createElement("div");
 contentThree.style.border = "1px solid black";
 contentThree.style.backgroundColor = "pink";
+    const content3A = document.createElement("h1");
+    content3A.textContent = "I'm in a div";
+    contentThree.appendChild(content3A);
+    const content3B = document.createElement("p");
+    content3B.textContent = "ME TOO!"
+    contentThree.appendChild(content3B);
+container.appendChild(contentThree);
