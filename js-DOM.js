@@ -19,3 +19,12 @@ contentThree.style.backgroundColor = "pink";
     content3B.textContent = "ME TOO!"
     contentThree.appendChild(content3B);
 container.appendChild(contentThree);
+
+// Method 2
+// const btn = document.querySelector("#btn");
+// btn.onclick = () => alert("Hello World");
+
+const btn = document.querySelector('#btn');
+btn.addEventListener("click", () => {
+    alert("Hello World");
+})
