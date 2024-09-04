@@ -33,11 +33,15 @@ btn.addEventListener("click", () => {
 })
 
 */
-
 function alertFunction() {
     alert("YAY! YOU DID IT!");
   }
-
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", alertFunction);
+
+const btn2 = document.querySelector("#btn2");
+btn2.addEventListener("click", function (e) {
+    e.target.style.background = "blue";
+  });
+  
   
