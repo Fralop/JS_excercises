@@ -8,3 +8,7 @@ const contentTwo = document.createElement("h3");
 contentTwo.style.color = "blue";
 contentTwo.textContent = "I'm a blue h3!"
 container.appendChild(contentTwo);
+
+const contentThree = document.createElement("div");
+contentThree.style.border = "1px solid black";
+contentThree.style.backgroundColor = "pink";
