@@ -24,7 +24,18 @@ container.appendChild(contentThree);
 // const btn = document.querySelector("#btn");
 // btn.onclick = () => alert("Hello World");
 
+/* Method 3
+
 const btn = document.querySelector('#btn');
 btn.addEventListener("click", () => {
     alert("Hello World");
 })
+*/
+
+function alertFunction() {
+    alert("YAY! YOU DID IT!");
+  }
+
+const btn = document.querySelector("#btn");
+btn.addEventListener("click", alertFunction);
+  
