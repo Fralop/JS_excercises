@@ -20,16 +20,18 @@ contentThree.style.backgroundColor = "pink";
     contentThree.appendChild(content3B);
 container.appendChild(contentThree);
 
-// Method 2
-// const btn = document.querySelector("#btn");
-// btn.onclick = () => alert("Hello World");
+/* Method 2
 
-/* Method 3
+const btn = document.querySelector("#btn");
+btn.onclick = () => alert("Hello World");
+
+Method 3:
 
 const btn = document.querySelector('#btn');
 btn.addEventListener("click", () => {
     alert("Hello World");
 })
+
 */
 
 function alertFunction() {
