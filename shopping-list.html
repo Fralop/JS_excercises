@@ -27,10 +27,23 @@
 
     </ul>
     <script>
+      function addItem () {
+        const inputValue = InputElement.value;
+        inputElement = "";
+        const li = document.createElement("li");
+        const span = document.createElement("span");
+        const button = document.createElement("button")
+        li.appendChild(span);
+        li.appendChild(button);
+        span.textContent = inputValue;
+        button.textContent = "Delete";
+        ul.appendChild(li);
+      }
       const ul = document.querySelector("ul");
-      const input = document.querySelector("input");
+      const inputElement = document.querySelector("#item");
       const button = document.querySelector("button");
-       
+      button.addEventListener("click", addItem); 
+
     </script>
   </body>
 </html>
