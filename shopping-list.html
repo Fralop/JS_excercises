@@ -28,16 +28,23 @@
     </ul>
     <script>
       function addItem () {
-        const inputValue = InputElement.value;
-        inputElement = "";
+        const inputValue = inputElement.value;
+        console.log(inputValue);
+        inputElement.value = "";
         const li = document.createElement("li");
         const span = document.createElement("span");
-        const button = document.createElement("button")
+        const button2 = document.createElement("button")
         li.appendChild(span);
-        li.appendChild(button);
+        li.appendChild(button2);
         span.textContent = inputValue;
-        button.textContent = "Delete";
+        button2.textContent = "Delete";
         ul.appendChild(li);
+       //Add focus to the entry
+        inputElement.focus();
+        button2.addEventListener("click", deleteItem);
+      function deleteItem () {
+        ul.removeChild(li);
+      }
       }
       const ul = document.querySelector("ul");
       const inputElement = document.querySelector("#item");
