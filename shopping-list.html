@@ -30,9 +30,11 @@
       function addItem () {
         const inputValue = inputElement.value;
         inputElement.value = "";
+        
         const li = document.createElement("li");
         const span = document.createElement("span");
         const button2 = document.createElement("button")
+        
         li.appendChild(span);
         li.appendChild(button2);
         span.textContent = inputValue;
@@ -40,13 +42,14 @@
         ul.appendChild(li);
        //Add focus to the entry
         inputElement.focus();
-        button2.addEventListener("click", deleteItem);
+        
+       button2.addEventListener("click", deleteItem);
       function deleteItem () {
         ul.removeChild(li);
       }
       }
       const ul = document.querySelector("ul");
-      const inputElement = document.querySelector("#item");
+      const inputElement = document.querySelector("input");
       const button = document.querySelector("button");
       button.addEventListener("click", addItem); 
 
