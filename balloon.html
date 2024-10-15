@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inflating a Ballon</title>
+    <title>Inflating a Balloon</title>
 </head>
 <body>
-    <h3>Press arrows to inflate or deflate. Be careful not to explode it !</h3>
+    <h3>Press arrows to inflate or deflate. Be careful not to explode it!</h3>
     <p>🎈</p>
     <script>
-        const balloon = document.querySelector("p");
-        balloon.addEventListener("keypress", function (event) {
-            if (event.key == "ArrowUp") {
-                console.log ("inflate");
-            } else if (event.key == "ArrowDown") {
-                console.log ("Deflate");
-            }
+       const balloon = document.querySelector("p");
 
+       function handleKeydown(e) {
+            let currentSize = parseInt(window.getComputedStyle(balloon).fontSize);
+            console.log(currentSize);
+
+            if (e.key == "ArrowUp" && currentSize < 150) {
+                console.log("inflate");
+                balloon.style.fontSize = (currentSize + 10) + 'px';
+            } else if (e.key == "ArrowUp" && currentSize >= 150) {
+                console.log("BOOM");
+                balloon.textContent = "💥";
+                document.removeEventListener('keydown', handleKeydown);
+            } else if (e.key == "ArrowDown" && currentSize < 150) {
+                console.log("Deflate");
+                balloon.style.fontSize = (currentSize - 10) + 'px';
+            }
         }
-    );
-            // balloon.style.fontSize = balloon.style.fontSize * 1.10;
-            //balloon.style.fontSize = balloon.style.fontSize * 0.9;
+
+        document.addEventListener('keydown', handleKeydown);
     </script>
 </body>
 </html>
