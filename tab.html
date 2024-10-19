@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <tab-panel>
+        <div data-tabname="one">Tab one content</div>
+        <div data-tabname="two">Tab two content</div>
+        <div data-tabname="three">Tab three content</div>
+      </tab-panel>
+      
+      <script>
+        function asTabs(node) {
+          // Get all children of the node
+          const tabs = Array.from(node.children);
+          const buttonsContainer = document.createElement('div');
+          
+          // Create a button for each tab and store it with its corresponding tab panel
+          let tabObjects = tabs.map((tab, index) => {
+            const button = document.createElement('button');
+            button.textContent = tab.getAttribute('data-tabname');
+            buttonsContainer.appendChild(button);
+      
+            // Hide all tabs except the first one
+            if (index !== 0) {
+              tab.style.display = 'none';
+            } else {
+              button.classList.add('active');
+            }
+      
+            return { button, tab };
+          });
+      
+          // Insert the buttons at the top of the tab panel
+          node.insertBefore(buttonsContainer, node.firstChild);
+      
+          // Function to change the visible tab
+          function selectTab(selectedTab) {
+            tabObjects.forEach(({ button, tab }) => {
+              // Toggle the display and button class
+              if (tab === selectedTab) {
+                tab.style.display = '';
+                button.classList.add('active');
+              } else {
+                tab.style.display = 'none';
+                button.classList.remove('active');
+              }
+            });
+          }
+      
+          // Add event listeners to the buttons to change tabs
+          tabObjects.forEach(({ button, tab }) => {
+            button.addEventListener('click', () => selectTab(tab));
+          });
+        }
+      
+        // Call the function to initialize the tabs
+        asTabs(document.querySelector('tab-panel'));
+      </script>
+      
+      <style>
+        /* Simple styling for the active tab */
+        button.active {
+          background-color: lightblue;
+          font-weight: bold;
+        }
+      
+        button {
+          margin-right: 5px;
+        }
+      </style>
+</body>
+</html>
