@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Trail Exercise</title>
+    <style>
+        .trail {
+          position: absolute;
+          height: 6px; 
+          width: 6px;
+          border-radius: 3px;
+          background: teal;
+        }
+        body {
+          height: 300px;
+        }
+      </style>
+</head>
+<body>   
+      <script>
+        const trailElements = [];
+        const trailLength = 10; // Number of trailing elements
+        let mouseX = 0;
+        let mouseY = 0;
+
+        // Create the trail elements and append them to the body
+        for (let i = 0; i < trailLength; i++) {
+          const trail = document.createElement("div");
+          trail.className = "trail";
+          document.body.appendChild(trail);
+          trailElements.push(trail);
+        }
+
+        // Function to track mouse position
+        window.addEventListener("mousemove", (event) => {
+          mouseX = event.pageX;
+          mouseY = event.pageY;
+        });
+
+        // Function to animate the trail elements
+        function animateTrail() {
+          let previousX = mouseX;
+          let previousY = mouseY;
+
+          // Move each trail element gradually towards the previous one's position
+          trailElements.forEach((trail, index) => {
+            const currentX = parseFloat(trail.style.left || previousX);
+            const currentY = parseFloat(trail.style.top || previousY);
+
+            // Interpolate position to create smooth movement
+            const newX = currentX + (previousX - currentX) * 0.2;
+            const newY = currentY + (previousY - currentY) * 0.2;
+
+            // Update trail element position
+            trail.style.left = newX + "px";
+            trail.style.top = newY + "px";
+
+            previousX = newX;
+            previousY = newY;
+          });
+
+          // Continue the animation loop
+          requestAnimationFrame(animateTrail);
+        }
+
+        // Start the animation
+        requestAnimationFrame(animateTrail);
+      </script>
+</body>
+</html>
