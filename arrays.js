@@ -21,3 +21,24 @@ function filterRange (arr, a, b) {
     return filteredArr;
 }
 
+//Excercise 3: Filter range "in place"
+const arr = [2,5,25,35,48];
+function filterRangeInPlace(arr, a, b) {
+    let indices = [];
+    arr.forEach((item, index) => {
+        if (item < a || item > b) {
+            indices.push(index);
+        }
+    });
+    indices.forEach(item => {
+        arr.splice(item, 1);
+    })
+    return arr;
+}
+
+//Excercise 4: Sort in decreasing order
+let arr4 = [5, 2, 1, -10, 8];
+function reverseArr (arr) {
+    newArr = arr.sort((a,b) => b-a);
+    return newArr;
+}
