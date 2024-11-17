@@ -83,3 +83,42 @@ let usersMapped = users.map(user => ({
 }));
 */
 
+//Exercise 8: Sort by age
+let johnsito = { name: "John", age: 25 };
+let petesito = { name: "Pete", age: 30 };
+let marysita = { name: "Mary", age: 28 };
+
+let arr8 = [ petesito, johnsito, marysita ];
+
+function sortByAge (arr) {
+    newArr = arr.sort((a,b) => a.age-b.age);
+    return newArr;
+}
+
+let sortedByAge = sortByAge(arr8);
+console.log(sortedByAge);
+
+//Excercise 9: shuffle array
+let arr9 = [1,2,3];
+function shuffle (arr) {
+    arr.sort((a,b) => Math.random() * 2 - 1);
+} //not the Fisher-Yates Shuffle
+
+//Excercise 10: Get average age
+let john10 = { name: "John", age: 25 };
+let pete10 = { name: "Pete", age: 30 };
+let mary10 = { name: "Mary", age: 29 };
+
+let arr10 = [ john10, pete10, mary10 ];
+
+function getAverageAge (arr) {
+   let averageAge = arr.reduce(addAll, 0) / arr.length;
+   return averageAge; 
+};
+
+function addAll (sum,item) {
+    return sum + item.age;
+};
+
+
+// (25 + 30 + 29) / 3 = 28
