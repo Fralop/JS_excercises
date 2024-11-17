@@ -42,3 +42,40 @@ function reverseArr (arr) {
     newArr = arr.sort((a,b) => b-a);
     return newArr;
 }
+
+//Exc. 5: copy and sort array
+let arr5 = ["HTML", "JavaScript", "CSS"];
+let sorted = copySorted(arr5);
+function copySorted(arr) {
+    let temp = arr.slice();
+    return temp.sort();
+}
+
+//Exc. 6: map to names
+//let john = { name: "John", age: 25 };
+//let pete = { name: "Peter", age: 30 };
+//let mary = { name: "Mary", age: 28 };
+//
+//let users = [ john, pete, mary ];
+//
+//let names = users.map(item => item.name).join(', ');
+
+//Exc. 7: map to objects
+let john = { name: "John", surname: "Smith", id: 1 };
+let pete = { name: "Pete", surname: "Hunt", id: 2 };
+let mary = { name: "Mary", surname: "Key", id: 3 };
+
+let users = [ john, pete, mary ];
+
+let usersMapped = /* ... your code ... */
+
+/*
+usersMapped = [
+  { fullName: "John Smith", id: 1 },
+  { fullName: "Pete Hunt", id: 2 },
+  { fullName: "Mary Key", id: 3 }
+]
+*/
+
+alert( usersMapped[0].id ) // 1
+alert( usersMapped[0].fullName )
