@@ -67,15 +67,19 @@ let mary = { name: "Mary", surname: "Key", id: 3 };
 
 let users = [ john, pete, mary ];
 
-let usersMapped = /* ... your code ... */
+let usersMapped = [...users]; 
+usersMapped.forEach((item, index) => {
+    let newItem = {
+        fullName: item.name + ' ' + item.surname,
+        id: item.id
+    };
+    usersMapped[index] = newItem;
+});
 
-/*
-usersMapped = [
-  { fullName: "John Smith", id: 1 },
-  { fullName: "Pete Hunt", id: 2 },
-  { fullName: "Mary Key", id: 3 }
-]
+/* Website solution:
+let usersMapped = users.map(user => ({
+  fullName: `${user.name} ${user.surname}`,
+  id: user.id
+}));
 */
 
-alert( usersMapped[0].id ) // 1
-alert( usersMapped[0].fullName )
