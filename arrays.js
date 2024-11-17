@@ -120,5 +120,42 @@ function addAll (sum,item) {
     return sum + item.age;
 };
 
+//Excercise 11: Filter unique array members
+let strings = ["Hola", "Hare", "Krishna", "Hare", "Krishna",
+    "Krishna", "Krishna", "Hare", "Hare", ":-O", "Hola"] ;
 
-// (25 + 30 + 29) / 3 = 28
+function unique (arr) {
+    let newString = [];
+    arr.forEach (item => {
+        if (!newString.includes(item)) {
+            newString.push(item);
+        };
+    });
+    return newString;
+}
+
+//Excercise 12: Create keyed object from array
+let users12 = [
+    {id: 'john', name: "John Smith", age: 20},
+    {id: 'ann', name: "Ann Smith", age: 24},
+    {id: 'pete', name: "Pete Peterson", age: 31},
+  ];
+  
+  let usersById = groupById(users12);
+
+  function groupById (arr) {
+    return arr.reduce(addObject, {})
+  }
+
+  function addObject (obj, value) {
+    obj[value.id] = value;
+    return obj;
+  }
+
+  //Book version of the function with arrow functions !
+  //function groupById(array) {
+  //  return array.reduce((obj, value) => {
+  //    obj[value.id] = value;
+  //    return obj;
+  //  }, {})
+  //}
